@@ -12,6 +12,7 @@ import org.springframework.test.annotation.DirtiesContext;
 @DirtiesContext
 @EmbeddedKafka(partitions = 1, brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"})
 public class TaskThreeTests {
+
     static final Logger logger = LoggerFactory.getLogger(TaskThreeTests.class);
 
     @Autowired
@@ -31,7 +32,6 @@ public class TaskThreeTests {
             kafkaProducer.send(transactionLine);
         }
         Thread.sleep(2000);
-
 
         logger.info("----------------------------------------------------------");
         logger.info("----------------------------------------------------------");
